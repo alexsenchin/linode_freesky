@@ -1,0 +1,25 @@
+{% extends 'news/base.html' %} 
+{% load static %} 
+
+
+{% block content %}
+
+<div class="container grid grid--2-cols news">
+
+{% for news in all_news %}
+<a class="news--link" href="{% url 'news_detail' news.slug %}">
+<div class="news--block">
+    <figure class="image">
+        <img class="news--image" src="{{ news.image.url }}">
+    </figure>
+    
+    <h2 class="news--header">{{ news.title }}</h2>
+    <p class="news--intro">{{ news.intro }}</p>
+    
+</div>
+</a>
+
+{% endfor %} 
+
+</div>
+{% endblock %}
